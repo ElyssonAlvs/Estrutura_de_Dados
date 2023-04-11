@@ -33,7 +33,7 @@ int main(){
     cin >> tam;
     int* vetor = new int[tam];
     for(int i = 0; i < tam; i++){
-        cout << "Digite o elemento " << i << "do vetor: " << endl;
+        cout << "Digite o elemento " << i << " do vetor: " << endl;
         cin >> vetor[i];
     }
 
