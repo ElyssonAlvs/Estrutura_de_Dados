@@ -17,8 +17,10 @@ void insert_sort(int vetor[], int tamanho){
 
 int main(){
     int tamanho;
+    // Inserir o tamanho do vetor
     cin>>tamanho;
     int vetor[tamanho];
+    // Pegar os valores do vetor 
     for(int i = 0; i < tamanho; i++){
         cin>>vetor[i];
     }
@@ -28,7 +30,7 @@ int main(){
     }
 
     cout<<endl;
-
+    // Chamada da função
     insert_sort(vetor, tamanho);
     
     // Depois de ordenar
@@ -39,6 +41,7 @@ int main(){
     /*
     A complexidade de pior caso do algoritmo é O(n^2), quando o vetor está ordenado em ordem decrescente
     e o algoritmo precisa inserir cada elemento no começo do vetor. A complexidade de melhor caso é O(n),
-    quando o vetor já está ordenado e o algoritmo precisa apenas percorrer o vetor uma vez para confirmar que está ordenado.
+    quando o vetor já está ordenado e o algoritmo precisa apenas percorrer o vetor uma vez para confirmar
+    que está ordenado.
     */
 }

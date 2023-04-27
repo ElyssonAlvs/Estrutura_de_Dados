@@ -25,7 +25,6 @@ int fibonacci(int n) {
     return atual;
 }
 
-
 int main(){
     int n;
     cin>>n;
