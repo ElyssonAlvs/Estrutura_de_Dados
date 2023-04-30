@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-// Retorna a soma dos elementos
+// Retorna o elemento da sequência
 int fibonacci(int n) {
     // Caso o o termo requerido seja 0
     if (n == 0){

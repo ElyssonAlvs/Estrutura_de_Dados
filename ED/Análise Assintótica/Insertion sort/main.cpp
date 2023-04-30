@@ -1,7 +1,7 @@
 #include <iostream>
 
 using namespace std;
-// ordenação do tipo Inserto sort
+// ordenação do tipo Insertion sort
 void insert_sort(int vetor[], int tamanho){
     int auxiliar, j;
     for(int i = 1; i < tamanho; i++){
