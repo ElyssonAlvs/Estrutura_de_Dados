@@ -1,0 +1,102 @@
+Projeto 1 - Matriz Esparsa
+
+Equipe: Elysson A. Lacerda1 & Gustavo A. Monteiro
+
+----------------------------
+
+1.[1.0/3pt] A classe Sparse Matriz foi implementada corretamente com todas as funções-membro que foram pedidas? (construtor, destrutor, insert, get print)
+
+2.[0.5/1pt] A memória alocada dinamicamente foi devidamente liberada?
+
+3.[1pt] A interface do programa foi bem desenvolvida? Houve preocupação com o tratamento de entradas do usuário? Algum menu ou opção de linhas de comando foi implementada?
+
+4.[2pt] As operações de soma, multiplicação de matrizes foi implementada? Foi implementada a leitura de arquivo?
+
+5.[1.8/2pt] Foi entregue relatório contendo todas as seções exigidas no projeto?
+
+6.[1pt] Qualidade do código fonte (clareza, indentação, documentação, erros, uso de POO, etc).
+
+7.[+0.2pt] Relatório foi escrito em Latex?
+
+----------------------------
+
+Nota: 7,5
+
+
+Com relação ao construtor da SparseMatrix:
+
+No relatório, vocês disseram que fazem uma coisa, mas não fazem. Vocês disseram que: "O construtor da classe SparseMatrix .... cria um nó cabeça para cada linha e
+coluna da matriz, e os conecta entre si, inicializando as listas".
+
+Porém, ao ler o construtor de vocês, apenas UM nó cabeça é criado. Deveria ter um nó sentinela para cada linha e para cada coluna da matriz! Foi isso que o projeto pedia.
+
+
+-----------------------------
+
+Sobre liberação de memória alocada dinamicamente:
+
+O destrutor de vocês não está liberando todos os nós da matriz. Vejam, é só ler o que as linhas estão fazendo que vemos que tem nós deixando de serem liberados. O laço anda apenas para baixo liberando os nós que estão abaixo de m_head. Faltaram todos os demais nós.
+
+-----------------------------
+
+Sobre os requisitos da matriz esparsa:
+
+A função "insert" de vocês deixa nós com valor 0 serem inseridos na matriz esparsa. Isso está errado.
+
+Façam o teste. Adicione um destrutor no struct Node mandando imprimir o nó deletado. Depois crie uma matriz e saia adicionando nós com valor 0 na matriz, e depois encerre o programa. Você verá vários zeros sendo deletados.
+
+-----------------------------
+
+Por fim, a matriz não foi implementada corretamente. Eu percebi que, na função get(), vocês sempre andam para baixo para acessar qualquer que seja o elemento da matriz. Isso não está certo, não condiz com a estrutura que foi pedida para ser programada.
+
+Cada lista de linha e de coluna deveria ter um nó cabeça. Uma lista na mesma linha não deveria ter acesso direto aos elementos da lista da outra linha sem ser pelo nó cabeça. Como vocês não criaram nó cabeça, fizeram algo diferente do que foi exigido.
+
+------------------------------
+
+As matrizes não estão sendo lidas corretamente:
+Eu mandei ele carregar essa matriz:
+3 3
+1 1 1
+1 2 2
+1 3 3
+2 1 4
+2 2 5
+2 3 6
+3 1 7
+3 2 8
+3 3 9
+
+Depois essa matriz:
+3 3
+1 1 -1
+1 2 -2
+1 3 -3
+2 1 -4
+2 2 -5
+2 3 -6
+3 1 -7
+3 2 -8
+3 3 -9
+
+E ele carregou matrizes diferentes:
+Matriz: 0
+| 1 1 1 |
+| 1 2 2 |
+| 1 3 3 |
+
+Matriz: 1
+| 1 1 -1 |
+| 1 2 -2 |
+| 1 3 -3 |
+
+Isso é por causa dos problemas que eu já listei acima.
+Tem problemas na implementação
+.
+Vocês não fizeram testes??
+Por quê não testaram várias matrizes?
+
+--------------------------------------
+
+Sobre o relatório:
+
+A função sum de vocês tem complexidade O(n^3), pois o método get e o insert, ambos com complexidade O(n) estão dentro de dois laços aninhados de complexidade O(n^2). Logo, o total fica O(n)*O(n^2) = O(n^3).
